@@ -16,6 +16,7 @@ const techStack = [
   { name: "Flask", icon: "flask", color: "#FFFFFF" },
   { name: "SQLite", icon: "sqlite", color: "#003B57" },
   { name: "Supabase", icon: "supabase", color: "#3ECF8E" },
+  { name: "Vercel", icon: "vercel", color: "#FFFFFF" },
   { name: "GitHub", icon: "github", color: "#FFFFFF" },
 ]
 
@@ -71,6 +72,11 @@ const TechIcon = ({ tech }: { tech: (typeof techStack)[0] }) => {
     supabase: (
       <svg viewBox="0 0 24 24" fill="currentColor" className="w-8 h-8">
         <path d="M21.362 9.354H12V.396a.396.396 0 0 0-.716-.233L2.203 12.424l-.401.562a1.04 1.04 0 0 0 .836 1.659H12v8.959a.396.396 0 0 0 .716.233l9.081-12.261.401-.562a1.04 1.04 0 0 0-.836-1.66z" />
+      </svg>
+    ),
+    vercel: (
+      <svg viewBox="0 0 24 24" fill="currentColor" className="w-8 h-8">
+        <path d="M24 22.525H0l12-21.05 12 21.05z" />
       </svg>
     ),
     github: (

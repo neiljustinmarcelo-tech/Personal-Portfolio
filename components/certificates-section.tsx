@@ -24,7 +24,7 @@ const certificates = [
     title: "Fluent in English",
     issuer: "Jobstreet |ELS Language Centres",
     date: "2026",
-    image: "/certificates/english-certificate.jpg",
+    image: "/certificates/english-certificate.JPG",
     link: "https://ph.jobstreet.com/profiles/neiljustin-marcelo-1ztYtqYk2H",
     pdf: "/certificates/Fluent-English.pdf",
   },

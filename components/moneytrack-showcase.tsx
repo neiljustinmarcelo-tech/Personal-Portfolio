@@ -1,7 +1,7 @@
 "use client"
 
 import { useState, useEffect, useRef } from "react"
-import { motion, AnimatePresence, useScroll, useSpring, useTransform } from "framer-motion"
+import { motion, AnimatePresence, useScroll, useSpring } from "framer-motion"
 import {
   X,
   Github,
@@ -104,10 +104,7 @@ export function MoneyTrackShowcase({ isVisible, onClose }: MoneyTrackShowcasePro
   const showcaseRef = useRef<HTMLDivElement>(null)
   
   /* Scroll & Spring configurations for premium custom progress indicators */
-  const { scrollYProgress } = useScroll({
-    target: showcaseRef,
-    offset: ["start start", "end end"]
-  })
+  const { scrollYProgress } = useScroll()
   const scaleX = useSpring(scrollYProgress, {
     stiffness: 100,
     damping: 30,
@@ -1327,6 +1324,7 @@ export function MoneyTrackShowcase({ isVisible, onClose }: MoneyTrackShowcasePro
           {/* Closing callout */}
           <div className="w-full text-center py-10">
             <h3 className="text-xl font-extrabold text-zinc-200 mb-4">Completed reviewing the project?</h3>
+            <h5 className="text-xl font-extrabold text-zinc-200 mb-4">SOON TO BE PUBLISHED</h5>
             <div className="flex gap-4 justify-center">
               <Button
                 onClick={onClose}

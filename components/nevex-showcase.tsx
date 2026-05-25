@@ -70,10 +70,7 @@ export function NevexShowcase({ isVisible, onClose }: NevexShowcaseProps) {
   const showcaseRef = useRef<HTMLDivElement>(null)
 
   /* Scroll Progress for Sticky indicators */
-  const { scrollYProgress } = useScroll({
-    target: showcaseRef,
-    offset: ["start start", "end end"]
-  })
+  const { scrollYProgress } = useScroll()
   const scaleX = useSpring(scrollYProgress, {
     stiffness: 100,
     damping: 30,
