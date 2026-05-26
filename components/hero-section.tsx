@@ -138,8 +138,8 @@ export function HeroSection() {
               className="flex justify-center lg:justify-start gap-4"
             >
               {[
-                { icon: Github, href: "https://github.com/neiljustinmarcelo", label: "GitHub" },
-                { icon: Linkedin, href: "#", label: "LinkedIn" },
+                { icon: Github, href: "https://github.com/neiljustinmarcelo-tech", label: "GitHub" },
+                { icon: Linkedin, href: "https://www.linkedin.com/in/neil-justin-marcelo-0b46453b8/", label: "LinkedIn" },
                 { icon: Mail, href: "mailto:neiljustinmarcelo@email.com", label: "Email" },
               ].map((social) => (
                 <motion.a

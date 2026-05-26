@@ -27,6 +27,7 @@ interface Project {
   technologies?: string[]
   liveUrl?: string
   longDescription?: string
+  imageUrl?: string
 }
 
 /* ─── Project Data ─── */
@@ -198,7 +199,8 @@ const projects: Project[] = [
     image: "/projects/PortfolioWeb/portfolio.jpg",
     tech: ["Next.js 16", "React 19", "TypeScript", "Tailwind CSS 4", "Framer Motion", "Vercel Analytics"],
     github: "https://github.com/neiljustinmarcelo-tech/Personal-Portfolio",
-    demo: "#",
+    demo: "/",
+    imageUrl: "/",
   },
 
 ]
@@ -230,38 +232,50 @@ function ProjectCard({
       className="group glass rounded-2xl overflow-hidden hover:border-primary/30 transition-all duration-500 cursor-pointer hover:shadow-xl hover:shadow-purple-500/10"
     >
       {/* Project Image / Thumbnail */}
-      <div className="relative h-48 overflow-hidden bg-gradient-to-br from-purple-600/20 to-blue-600/20">
+      <a
+        href={project.imageUrl || "#"}
+        target={project.imageUrl ? "_blank" : undefined}
+        rel={project.imageUrl ? "noopener noreferrer" : undefined}
+        className="group/photo relative block h-48 w-full overflow-hidden bg-gradient-to-br from-purple-600/20 to-blue-600/20 text-left focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+        onClick={(event) => {
+          if (!project.imageUrl) {
+            event.preventDefault()
+            onView(project)
+          }
+        }}
+        aria-label={`View ${project.title} project`}
+      >
         {thumbnailSrc ? (
           <img
             src={thumbnailSrc}
             alt={project.title}
-            className="w-full h-full object-cover object-top group-hover:scale-110 transition-transform duration-700"
+            className="w-full h-full object-cover object-top group-hover/photo:scale-110 transition-transform duration-700"
             loading="lazy"
             draggable={false}
           />
         ) : (
           <div className="absolute inset-0 flex items-center justify-center">
-            <Folder className="w-16 h-16 text-primary/40 group-hover:scale-110 transition-transform duration-500" />
+            <Folder className="w-16 h-16 text-primary/40 group-hover/photo:scale-110 transition-transform duration-500" />
           </div>
         )}
         {/* Overlay */}
         <div className="absolute inset-0 bg-gradient-to-t from-card via-transparent to-transparent opacity-60" />
         {/* Glow effect on hover */}
-        <div className="absolute inset-0 bg-gradient-to-br from-purple-500/0 to-blue-500/0 group-hover:from-purple-500/10 group-hover:to-blue-500/10 transition-all duration-500" />
+        <div className="absolute inset-0 bg-gradient-to-br from-purple-500/0 to-blue-500/0 group-hover/photo:from-purple-500/10 group-hover/photo:to-blue-500/10 transition-all duration-500" />
 
-        {/* "View Project" overlay for showcase projects */}
-        {hasShowcase && (
-          <div className="absolute inset-0 flex items-center justify-center bg-black/0 group-hover:bg-black/30 transition-all duration-500">
+        {/* "View Project" overlay for project photos */}
+        {(hasShowcase || project.imageUrl) && (
+          <div className="absolute inset-0 flex items-center justify-center bg-black/0 group-hover/photo:bg-black/30 transition-all duration-500">
             <motion.div
               initial={{ opacity: 0, scale: 0.8 }}
               whileHover={{ scale: 1 }}
-              className="opacity-0 group-hover:opacity-100 transition-opacity duration-300 px-5 py-2.5 rounded-full bg-white/15 backdrop-blur-md border border-white/20 text-white text-sm font-medium"
+              className="opacity-0 group-hover/photo:opacity-100 transition-opacity duration-300 px-5 py-2.5 rounded-full bg-white/15 backdrop-blur-md border border-white/20 text-white text-sm font-medium"
             >
-              Click View to explore →
+              View Project
             </motion.div>
           </div>
         )}
-      </div>
+      </a>
 
       {/* Content */}
       <div className="p-6">

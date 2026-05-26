@@ -240,6 +240,62 @@
   animation: float 6s ease-in-out infinite;
 }
 
+/* Infinite technology marquee */
+.tech-marquee {
+  isolation: isolate;
+}
+
+.tech-card {
+  animation: tech-card-travel 90s linear infinite;
+  left: 100%;
+  position: absolute;
+  top: 50%;
+  transform: translate3d(0, -50%, 0);
+  will-change: transform;
+}
+
+.tech-card-float {
+  animation: tech-card-float 5.5s ease-in-out infinite;
+}
+
+.tech-card-surface::before {
+  content: "";
+  position: absolute;
+  inset: -1px;
+  border-radius: inherit;
+  background: linear-gradient(
+    135deg,
+    rgba(168, 85, 247, 0.45),
+    rgba(59, 130, 246, 0.12),
+    rgba(6, 182, 212, 0.38)
+  );
+  opacity: 0;
+  transition: opacity 300ms ease;
+  z-index: -1;
+}
+
+.tech-card-surface:hover::before {
+  opacity: 1;
+}
+
+@keyframes tech-card-travel {
+  from {
+    transform: translate3d(0, -50%, 0);
+  }
+  to {
+    transform: translate3d(-450rem, -50%, 0);
+  }
+}
+
+@keyframes tech-card-float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-5px);
+  }
+}
+
 /* Pulse glow animation */
 @keyframes pulse-glow {
   0%, 100% {
@@ -283,4 +339,3 @@
 .modal-scrollbar::-webkit-scrollbar-thumb:hover {
   background: rgba(168, 85, 247, 0.4);
 }
-
