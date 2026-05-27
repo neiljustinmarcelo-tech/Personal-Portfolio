@@ -1,7 +1,7 @@
 "use client"
 
 import { motion, Variants } from "framer-motion"
-import { ArrowRight, Download, Github, Linkedin, Mail } from "lucide-react"
+import { ArrowRight, Code2, Github, Linkedin, Mail, Rocket, Zap } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import Image from "next/image"
 
@@ -196,7 +196,7 @@ export function HeroSection() {
                     {/* Profile Image filling the circle */}
                     <div className="w-[calc(100%-8px)] h-[calc(100%-8px)] rounded-full overflow-hidden flex items-center justify-center border border-border/50 relative">
                       <Image
-                        src="/images/profile.png"
+                        src="/images/profile1.png"
                         alt="Neil Justin Marcelo"
                         fill
                         className="object-cover"
@@ -213,21 +213,21 @@ export function HeroSection() {
                 animate={{ y: [0, -8, 0], rotate: [0, 5, 0] }}
                 transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
               >
-                <span className="text-2xl">🚀</span>
+                <Rocket className="h-6 w-6 text-primary" aria-hidden="true" />
               </motion.div>
               <motion.div
                 className="absolute -bottom-4 -left-4 p-3 glass rounded-xl"
                 animate={{ y: [0, 8, 0], rotate: [0, -5, 0] }}
                 transition={{ duration: 5, repeat: Infinity, ease: "easeInOut", delay: 1 }}
               >
-                <span className="text-2xl">💻</span>
+                <Code2 className="h-6 w-6 text-primary" aria-hidden="true" />
               </motion.div>
               <motion.div
                 className="absolute top-1/2 -right-8 p-3 glass rounded-xl"
                 animate={{ x: [0, 5, 0] }}
                 transition={{ duration: 3, repeat: Infinity, ease: "easeInOut", delay: 0.5 }}
               >
-                <span className="text-2xl">⚡</span>
+                <Zap className="h-6 w-6 text-primary" aria-hidden="true" />
               </motion.div>
             </div>
           </motion.div>
